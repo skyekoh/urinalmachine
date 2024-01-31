@@ -1,0 +1,49 @@
+.about-project {
+  font-family: Inconsolata, Arial;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 150px;
+  max-width: 1000px;
+  flex: 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.creators-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  column-gap: 50px;
+}
+
+.about-creator {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: top;
+}
+
+.photos-container{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.about-photo {
+  width: 150px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+}
+
+.school-logo{
+  height: 80px;
+}
+
+.creator-description {
+  font-family: Inconsolata, Arial;
+  font-size: 18px;
+  font-weight: 500;
+}
