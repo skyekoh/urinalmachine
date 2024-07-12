@@ -1,5 +1,5 @@
 .header{
-  height: 55px;
+  height: 5vh;
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -21,7 +21,7 @@
 
 .site-logo {
   position: fixed;
-  width: 55px;
+  width: 5vh;
   top: 0;
   left: 15px;
 }
@@ -38,13 +38,14 @@
 }
 
 .home-button, .about-button {
-  font-size: 30px;
+  font-size: 3vh;
   font-family: Inconsolata, Arial;
   font-weight: 700;
   background-color: white;
   border-style: none;
   cursor: pointer;
   transition: opacity 0.15s;
+  margin: 2vw;
 }
 
 .home-button:hover, .about-button:hover {

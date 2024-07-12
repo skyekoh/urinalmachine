@@ -1,9 +1,9 @@
 .about-project {
   font-family: Inconsolata, Arial;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 3vh;
   margin-top: 150px;
-  max-width: 1000px;
+  max-width: 900px;
   flex: 1;
   margin-left: auto;
   margin-right: auto;
@@ -17,12 +17,12 @@
   margin-left: auto;
   margin-right: auto;
   column-gap: 50px;
+  flex: 1;
 }
 
 .about-creator {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  align-items: top;
 }
 
 .photos-container{
@@ -47,3 +47,4 @@
   font-size: 18px;
   font-weight: 500;
 }
+

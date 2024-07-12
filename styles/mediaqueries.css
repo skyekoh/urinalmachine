@@ -1,0 +1,16 @@
+@media all and (max-width: 700px){
+    .photos-container{
+      flex-direction: column;
+    }
+
+    .creators-grid {
+        display: flex;
+        flex-direction: column;
+      }
+
+    .about-creator {
+        display: flex;
+        flex-direction: column;
+      }
+  }
+

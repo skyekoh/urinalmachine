@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 
       About Urinal Machine
     </title>
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href ="styles/header.css">
     <link rel="stylesheet" href ="styles/about.css">
     <link rel="stylesheet" href ="styles/general.css">
+    <link rel="stylesheet" href ="styles/mediaqueries.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,7 +17,7 @@
 
   <body>
     <div class="header">
-      <div class="left section">
+      <div class="left-section">
         <img class="site-logo" src="header-photos/urinal.jpg">
       </div>
       <div class="middle-section">
@@ -41,26 +43,27 @@
 
     </div>
 
-    <div class="creators-grid">
-      <div class="about-creator">
-        <div class="photos-container">
-          <img class="about-photo" src="about-photos/skye.png">
-          <img class = "school-logo" src="about-photos/waterloo.png">
+    <section id="creators">
+      <div class="creators-grid">
+        <div class="about-creator">
+          <div class="photos-container">
+            <img class="about-photo" src="about-photos/skye.png">
+            <img class = "school-logo" src="about-photos/waterloo.png">
+          </div>
+          <p class="creator-description">
+            >Skye is a 3rd year mechanical engineering student at the University of Waterloo. He is currently on exchange at Yonsei University as he does not like Waterloo very much.
+          </p>
         </div>
-        <p class="creator-description">
-          >Skye is a 3rd year mechanical engineering student at the University of Waterloo. He is currently on exchange at Yonsei University as he does not like Waterloo very much.
-        </p>
-      </div>
-      <div class="about-creator">
-        <div class="photos-container">
-          <img class="about-photo" src="about-photos/om.png">
-          <img class="school-logo" src="about-photos/western.jpg">
+        <div class="about-creator">
+          <div class="photos-container">
+            <img class="about-photo" src="about-photos/om.png">
+            <img class="school-logo" src="about-photos/western.jpg">
+          </div>
+          <p class="creator-description">
+            >Om has never worked a day in his life. He was not planning on going to university after high school, but his parents forced him to, so now he is pursuing a mechatronics and AI duel degree at Western University.
+          </p>
         </div>
-        <p class="creator-description">
-          >Om has never worked a day in his life. He was not planning on going to university after high school, but his parents forced him to, so now he is pursuing a mechatronics and AI duel degree at Western University.
-        </p>
       </div>
-
-    </div>
+    </section>
   </body>
 </html>
