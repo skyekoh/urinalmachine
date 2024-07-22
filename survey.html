@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href ="styles/header.css">
+    <link rel="stylesheet" href ="styles/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <a href="homepage.html">
+                <button class="home-button"> Back </button>
+            </a>
+        </div>
+        <div id="image-container" style="display: flex; flex-direction: row; justify-content: center;">
+            <img src="header-photos/urinal.jpg" style="width: 150px;"> 
+            <img src="header-photos/urinal.jpg" style="width: 150px;"> 
+            <img src="header-photos/urinal.jpg" style="width: 150px;"> 
+            <img src="header-photos/urinal.jpg" style="width: 150px;"> 
+        </div>
+
+        <!-- Javascript -->
+        <script>
+            document.addEventListener('DOMContentLoaded' , function() {
+                // generateAttribute randomly picks pee, person, or short.
+                function generateAttribute() {
+                    const attributes = ["pee", "person", "short"];
+                    const randomIndex = Math.floor(Math.random() * attributes.length);
+                    return attributes[randomIndex];
+                }
+                function addAttribute() {
+                    const images = document.querySelectorAll('#image-container img');
+                    images.forEach(img => {const randomAttribute = generateAttribute();
+                    img.setAttribute('data-attribute', randomAttribute)})
+                }
+            })
+        </script>
+    </body>
+</html>
