@@ -14,33 +14,47 @@
         </a>
     </div>
     <div id="image-container" style="display: flex; flex-direction: row; justify-content: center;">
-        <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="1"> 
-        <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="2"> 
-        <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="3"> 
-        <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="4"> 
+        <div class="image-wrapper">
+            <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="1"> 
+            <p class="attribute-text"></p>
+        </div>
+        <div class="image-wrapper">
+            <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="2">
+            <p class="attribute-text"></p>
+        </div>
+        <div class="image-wrapper">
+            <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="3">
+            <p class="attribute-text"></p>
+        </div>
+        <div class="image-wrapper">
+            <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="4">
+            <p class="attribute-text"></p>
+        </div>
+        <div class="image-wrapper">
+            <img src="header-photos/urinal.jpg" style="width: 150px;" data-id="5">
+            <p class="attribute-text"></p>
+        </div>
     </div>
     <button id="test-attributes">Test Attributes</button>
 
     <!-- Javascript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // addAttribute adds a random attribute for each urinal.
-            // Issue: How to prevent all 4 from potentially being a single attribute. If we say 2 was the limit, then there are only three options. 
-            // (4 choose 2 is 6. Divide by 2 is 3 accounting for symmetry) only providing 3 choices. 
-            //
-            // Potential solution: Example from stampede. There are about 15 urinals, and we give attributes to people. (Eg. Smelly)
+            // Function to generate a random attribute
             function generateAttribute() {
-                const attributes = ["pee", "person", "short"];
+                const attributes = ["pee", "person", "empty"];
                 const randomIndex = Math.floor(Math.random() * attributes.length);
                 return attributes[randomIndex];
             }
 
-            // Function to add a random attribute to each image
+            // Function to add a random attribute to each image and update the text
             function addAttribute() {
-                const images = document.querySelectorAll('#image-container img');
-                images.forEach(img => {
+                const wrappers = document.querySelectorAll('#image-container .image-wrapper');
+                wrappers.forEach(wrapper => {
+                    const img = wrapper.querySelector('img');
                     const randomAttribute = generateAttribute();
                     img.setAttribute('data-attribute', randomAttribute);
+                    wrapper.querySelector('.attribute-text').innerText = randomAttribute;
                 });
             }
 
