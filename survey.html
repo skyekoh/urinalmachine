@@ -6,6 +6,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .attribute-text {
+            margin-top: 10px; 
+            text-align: center; 
+        }
+
+        .select-button {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -35,48 +46,59 @@
             <p class="attribute-text"></p>
         </div>
     </div>
-    <button id="test-attributes">Test Attributes</button>
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <p style="padding-top: 100px;">Select Your Destination</p>
+        <div style="display: flex; flex-direction: row;">
+            <button class="select-button home-button"> 1 </button>
+            <button class="select-button home-button"> 2 </button>
+            <button class="select-button home-button"> 3 </button>
+            <button class="select-button home-button"> 4 </button>
+            <button class="select-button home-button"> 5 </button>
+        </div>
+    </div>
 
     <!-- Javascript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Function to generate a random attribute
-            function generateAttribute() {
-                const attributes = ["pee", "person", "empty"];
-                const randomIndex = Math.floor(Math.random() * attributes.length);
-                return attributes[randomIndex];
+            function generateUrinalSetup() {
+                const urinals = ['empty', 'empty', 'empty', 'empty', 'empty'];
+                const states = ['person', 'pee'];
+
+                // Ensure at least two urinals are not empty
+                let nonEmptyCount = 0;
+                while (nonEmptyCount < 2) {
+                    const randomIndex = Math.floor(Math.random() * urinals.length);
+                    if (urinals[randomIndex] === 'empty') {
+                        urinals[randomIndex] = states[Math.floor(Math.random() * states.length)];
+                        nonEmptyCount++;
+                    }
+                }
+
+                // Randomly assign states to remaining urinals
+                for (let i = 0; i < urinals.length; i++) {
+                    if (urinals[i] === 'empty') {
+                        const randomState = Math.random() < 0.5 ? 'empty' : states[Math.floor(Math.random() * states.length)];
+                        urinals[i] = randomState;
+                    }
+                }
+
+                return urinals;
             }
 
-            // Function to add a random attribute to each image and update the text
-            function addAttribute() {
+            function addAttributesToUrinals() {
+                const urinalSetup = generateUrinalSetup();
                 const wrappers = document.querySelectorAll('#image-container .image-wrapper');
-                wrappers.forEach(wrapper => {
+
+                wrappers.forEach((wrapper, index) => {
                     const img = wrapper.querySelector('img');
-                    const randomAttribute = generateAttribute();
+                    const randomAttribute = urinalSetup[index];
                     img.setAttribute('data-attribute', randomAttribute);
                     wrapper.querySelector('.attribute-text').innerText = randomAttribute;
                 });
             }
 
-            // Function to test if the attributes were appended
-            function testAttributes() {
-                const images = document.querySelectorAll('#image-container img');
-                images.forEach(img => {
-                    const attribute = img.getAttribute('data-attribute');
-                    const id = img.getAttribute('data-id');
-                    if (attribute) {
-                        console.log(`Image with data-id ${id} has data-attribute: ${attribute}`);
-                    } else {
-                        console.error(`Image with data-id ${id} does not have a data-attribute.`);
-                    }
-                });
-            }
-
-            // Add random attributes when the page loads
-            addAttribute();
-
-            // Event listener for the button to test attributes
-            document.getElementById('test-attributes').addEventListener('click', testAttributes);
+            addAttributesToUrinals();
         });
     </script>
 </body>
