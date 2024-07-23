@@ -65,21 +65,22 @@
                 const urinals = ['empty', 'empty', 'empty', 'empty', 'empty'];
                 const states = ['person', 'pee'];
 
-                // Ensure at least two urinals are not empty
-                let nonEmptyCount = 0;
-                while (nonEmptyCount < 2) {
+                // Select two random urinals to be empty
+                let emptyCount = 0;
+                while (emptyCount < 2) {
                     const randomIndex = Math.floor(Math.random() * urinals.length);
                     if (urinals[randomIndex] === 'empty') {
-                        urinals[randomIndex] = states[Math.floor(Math.random() * states.length)];
-                        nonEmptyCount++;
+                        urinals[randomIndex] = 'reserved-empty';
+                        emptyCount++;
                     }
                 }
 
-                // Randomly assign states to remaining urinals
+                // Assign states to remaining urinals
                 for (let i = 0; i < urinals.length; i++) {
                     if (urinals[i] === 'empty') {
-                        const randomState = Math.random() < 0.5 ? 'empty' : states[Math.floor(Math.random() * states.length)];
-                        urinals[i] = randomState;
+                        urinals[i] = states[Math.floor(Math.random() * states.length)];
+                    } else if (urinals[i] === 'reserved-empty') {
+                        urinals[i] = 'empty';
                     }
                 }
 
